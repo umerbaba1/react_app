@@ -14,17 +14,31 @@ const App = () => {
 
   return (
 
+
     <BrowserRouter>
-      <Link className="underline text-red-500 m-8" to='/'>Home</Link>
-      <Link className="underline text-green-600" to='/topper'>Topper</Link>
-      <Outlet />
+     
       <Routes>
-        <Route path='/' element={<Homepage />} />
+        <Route path='/' element={<Lander />} >
         <Route path='/topper' element={<Achive />} />
         <Route path='*' element={<Error404 />} />
+        <Route path='/' element={<Homepage />} />
+        </Route>
 
       </Routes>
-      <footer className="bg-gray-800 text-white py-8">
+    </BrowserRouter>
+
+  )
+}
+export default App
+
+function Lander(){
+  return<div>
+     <Link className="underline text-red-500 m-8" to='/'>Home</Link>
+      <Link className="underline text-green-600" to='/topper'>Topper</Link>
+      
+      <Outlet />
+
+    <footer className="bg-gray-800 text-white py-8">
         <div className="container mx-auto text-center">
           <p>&copy; 2024 Ace Coaching. All rights reserved.</p>
           <div className="mt-4">
@@ -35,13 +49,10 @@ const App = () => {
         </div>
       
       </footer>
-    </BrowserRouter>
-
-  )
+  </div>
 }
 
 
-export default App
 function Homepage() {
 
 
